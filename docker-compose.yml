@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  mongodb:
+    image: mongo:3.2.4
+    container_name: "mongodb"
+    ports:
+      - 27017:27017
+    command: --smallfiles
+  postgresdb:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: ProftaakS61MW!
+      POSTGRES_DB: postgres/postgresdb
+    ports:
+      - 5432:5432
+  testapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgresdb
+      - mongodb
+    ports:
+      - 8080:8080
+
+
+
+
