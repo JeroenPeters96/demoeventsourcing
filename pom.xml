@@ -76,7 +76,7 @@
         </dependency>
         <dependency>
             <groupId>org.axonframework</groupId>
-            <artifactId>axon-kafka</artifactId>
+            <artifactId>axon-amqp</artifactId>
             <version>${axon.version}</version>
         </dependency>
 
